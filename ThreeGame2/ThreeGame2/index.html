@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>水を集めるゲーム</title>
+
+<style>
+  .waterInfo,
+.controlInfo {
+
+  color: white;
+
+}
+  body {
+    margin: 0;
+    overflow: hidden;
+    background: black;
+  }
+
+  #ui {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: white;
+    font-size: 20px;
+    font-family: sans-serif;
+    z-index: 10;
+  }
+
+  canvas {
+    display: block;
+  }
+
+  /* スタート画面 */
+  #startMenu {
+    position: absolute;
+    inset: 0;
+
+    background: rgba(0,0,0,0.7);
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 20px;
+
+    z-index: 20;
+  }
+
+  #startMenu h1 {
+    color: white;
+    font-size: 50px;
+    font-family: sans-serif;
+  }
+
+  #startMenu button {
+
+    width: 250px;
+    padding: 20px;
+
+    font-size: 24px;
+
+    border: none;
+    border-radius: 15px;
+
+    cursor: pointer;
+  }
+  #gameOverMenu {
+
+  position: absolute;
+  inset: 0;
+
+  background: rgba(0,0,0,0.7);
+
+  display: none;
+
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  z-index: 30;
+}
+
+#gameOverText {
+
+  color: white;
+  font-size: 50px;
+  text-align: center;
+}
+#startMenu {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background: rgba(0,0,0,0.5);
+
+  z-index: 20;
+}
+
+#startMenu h1 {
+  color: white;
+  font-size: 40px;
+  margin-bottom: 30px;
+}
+
+#startMenu button {
+  width: 220px;
+  padding: 15px;
+  margin: 10px;
+
+  font-size: 24px;
+
+  border: none;
+  border-radius: 10px;
+
+  cursor: pointer;
+}
+/* クイズ画面 */
+#quizMenu {
+
+  position: absolute;
+  inset: 0;
+
+  background: rgba(0,0,0,0.85);
+
+  display: none;
+
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 50;
+
+  color: white;
+  font-family: sans-serif;
+  text-align: center;
+}
+
+#quizMenu h1 {
+
+  width: 70%;
+
+  font-size: 32px;
+  line-height: 1.5;
+
+  margin-bottom: 40px;
+}
+
+#quizButtons {
+  display: flex;
+  gap: 40px;
+}
+
+#quizButtons button {
+
+  width: 140px;
+  height: 140px;
+
+  font-size: 60px;
+
+  border: none;
+  border-radius: 20px;
+
+  cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div id="ui">
+  Water: 0<br>
+  Time: 40
+</div>
+
+<!-- スタート画面 -->
+<div id="startMenu">
+  <h1>水を集めるゲーム</h1>
+
+  <h1>モード選択</h1>
+
+  <p class="waterInfo">
+    🔵 青い水：1点<br>
+    🔴 赤い水：5点
+  </p>
+
+  <p class="controlInfo">
+    ⌨️ WASDキーでボトルを動かそう
+  </p>
+
+  <button id="normalBtn">
+    ノーマルボトル
+  </button>
+
+  <button id="bigBtn">
+    ワイドボトル
+  </button>
+
+</div>
+<div id="gameOverMenu">
+
+  <h1 id="gameOverText">
+    ゲーム終了！
+  </h1>
+
+</div>
+<script type="module" src="./main.js"></script>
+<!-- クイズ画面 -->
+<div id="quizMenu">
+
+<h1 id="quizText">
+  問題
+</h1>
+
+  <div id="quizButtons">
+
+    <button id="trueBtn">〇</button>
+
+    <button id="falseBtn">×</button>
+
+  </div>
+
+</div>
+</body>
+</html>
